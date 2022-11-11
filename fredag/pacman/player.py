@@ -6,13 +6,12 @@ SCREEN_HEIGHT = 576
 # Define colors
 BLACK = (0,0,0)
 WHITE = (255,255,255)
-CHARBACK = (241, 212, 50)
 
 class Player(pygame.sprite.Sprite):
     change_x = 0
     change_y = 0
     
-    speed = 5
+    speed = 5 #ladgte til speed variabel for fart
     
     explosion = False
     game_over = False
@@ -20,7 +19,7 @@ class Player(pygame.sprite.Sprite):
         # Call the parent class constructor
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(filename).convert()
-        #self.image.set_colorkey(CHARBACK)
+        #self.image.set_colorkey(BLACK) kommenterte ut disse
         self.rect = self.image.get_rect()
         self.rect.topleft = (x,y)
         # Load animation
@@ -34,7 +33,7 @@ class Player(pygame.sprite.Sprite):
         img = pygame.image.load("explosion.png").convert()
         # Save the player image
         self.player_image = pygame.image.load(filename).convert()
-        #self.player_image.set_colorkey(CHARBACK)
+        #self.player_image.set_colorkey(BLACK)
 
     def update(self,horizontal_blocks,vertical_blocks):
         if not self.explosion:
@@ -75,9 +74,10 @@ class Player(pygame.sprite.Sprite):
         else:
             pygame.time.wait(500)
             self.game_over = True
+            #fjernet noe kode her som funket ikke med animasjon
     
     def move_right(self):
-        self.change_x = self.speed
+        self.change_x = self.speed #endret tallene med speed variabelen
 
     def move_left(self):
         self.change_x = -self.speed

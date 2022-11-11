@@ -51,7 +51,7 @@ class Game(object):
         for i, row in enumerate(enviroment()):
             for j, item in enumerate(row):
                 if item != 0:
-                    self.dots_group.add(Ellipse(j*32+12,i*32+12,GREEN,8,8))
+                    self.dots_group.add(Ellipse(j*32+12,i*32+12,GREEN,8,8)) #endret fargen på ballene til grønn
 
         # Load the sound effects
         self.pacman_sound = pygame.mixer.Sound("pacman_sound.ogg")
